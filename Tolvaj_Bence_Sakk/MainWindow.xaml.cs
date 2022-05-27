@@ -152,6 +152,33 @@ namespace Tolvaj_Bence_Sakk
             xcopy = x;
             ycopy = y;
         }
+        public void RookMove()
+        {
+            for (int i = x; i < 8; i++)
+            {
+                babuk[i, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(i + 1));
+            }
+            for (int i = x; i >= 0; i--)
+            {
+                babuk[i, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(i + 1));
+            }
+            for (int i = y; i < 8; i++)
+            {
+                babuk[x, i].Background = Brushes.Red;
+                legalmoves.Add(letters[i] + Convert.ToString(x + 1));
+            }
+            for (int i = y; i >= 0; i--)
+            {
+
+                babuk[x, i].Background = Brushes.Red;
+                legalmoves.Add(letters[i] + Convert.ToString(x + 1));
+
+            }
+            babuk[x, y].Background = Brushes.Yellow;
+
+        }
         public void General()
         {
             babuk = new Button[8, 8];
