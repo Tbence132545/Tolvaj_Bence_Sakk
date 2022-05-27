@@ -31,6 +31,13 @@ namespace Tolvaj_Bence_Sakk
             InitializeComponent();
             opciok.ItemsSource = options;
             opciok.SelectedIndex = 0;
+            opciok.SelectionChanged += Opciok_SelectionChanged;
+            General();
+        }
+        private void Opciok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Button kijelolt = babuk[x, y];
+            Temp_Click(kijelolt, e);
         }
         public void KingMove()
         {
