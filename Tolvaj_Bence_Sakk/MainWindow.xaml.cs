@@ -32,6 +32,56 @@ namespace Tolvaj_Bence_Sakk
             opciok.ItemsSource = options;
             opciok.SelectedIndex = 0;
         }
+        public void KingMove()
+        {
+
+            if (y - 1 > 0)
+            {
+                babuk[x, y - 1].Background = Brushes.Red;
+                legalmoves.Add(letters[y - 1] + Convert.ToString(x + 1));
+            }
+            if (x + 1 < 8)
+            {
+                babuk[x + 1, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x + 2));
+                if (y - 1 >= 0)
+                {
+                    babuk[x + 1, y - 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 1] + Convert.ToString(x + 2));
+                }
+                if (y + 1 < 8)
+                {
+                    babuk[x + 1, y + 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 1] + Convert.ToString(x + 2));
+                }
+            }
+            if (y + 1 < 8)
+            {
+                babuk[x, y + 1].Background = Brushes.Red;
+                legalmoves.Add(letters[y + 1] + Convert.ToString(x + 1));
+                if (x + 1 < 8)
+                {
+                    babuk[x + 1, y].Background = Brushes.Red;
+                    legalmoves.Add(letters[y] + Convert.ToString(x + 2));
+                }
+            }
+            if (x - 1 >= 0)
+            {
+                babuk[x - 1, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x));
+                if (y - 1 >= 0)
+                {
+                    babuk[x - 1, y - 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 1] + Convert.ToString(x));
+                }
+                if (y + 1 < 8)
+                {
+                    babuk[x - 1, y + 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 1] + Convert.ToString(x));
+                }
+            }
+        }
+
         public void General()
         {
             babuk = new Button[8, 8];
