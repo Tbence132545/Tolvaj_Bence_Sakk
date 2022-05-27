@@ -107,7 +107,51 @@ namespace Tolvaj_Bence_Sakk
                 legalmoves.Add(letters[y] + Convert.ToString(x + 3));
             }
         }
-
+        public void FutoMove()
+        {
+            int xcopy = x;
+            int ycopy = y;
+            while (xcopy + 1 < 8 && ycopy + 1 < 8)
+            {
+                xcopy++;
+                ycopy++;
+                babuk[xcopy, ycopy].Background = Brushes.Red;
+                string move = letters[ycopy] + Convert.ToString(xcopy + 1);
+                legalmoves.Add(move);
+            }
+            xcopy = x;
+            ycopy = y;
+            while (xcopy - 1 >= 0 && ycopy + 1 < 8)
+            {
+                xcopy--;
+                ycopy++;
+                babuk[xcopy, ycopy].Background = Brushes.Red;
+                string move = letters[ycopy] + Convert.ToString(xcopy + 1);
+                legalmoves.Add(move);
+            }
+            xcopy = x;
+            ycopy = y;
+            while (xcopy - 1 >= 0 && ycopy - 1 >= 0)
+            {
+                xcopy--;
+                ycopy--;
+                babuk[xcopy, ycopy].Background = Brushes.Red;
+                string move = letters[ycopy] + Convert.ToString(xcopy + 1);
+                legalmoves.Add(move);
+            }
+            xcopy = x;
+            ycopy = y;
+            while (xcopy + 1 < 8 && ycopy - 1 >= 0)
+            {
+                xcopy++;
+                ycopy--;
+                babuk[xcopy, ycopy].Background = Brushes.Red;
+                string move = letters[ycopy] + Convert.ToString(xcopy + 1);
+                legalmoves.Add(move);
+            }
+            xcopy = x;
+            ycopy = y;
+        }
         public void General()
         {
             babuk = new Button[8, 8];
