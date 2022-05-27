@@ -235,6 +235,7 @@ namespace Tolvaj_Bence_Sakk
             }
 
         }
+
         public void General()
         {
             babuk = new Button[8, 8];
@@ -282,6 +283,85 @@ namespace Tolvaj_Bence_Sakk
                 }
             }
         }
+        private void Temp_Click(object sender, RoutedEventArgs e)
+        {
+            legalmoves.Clear();
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (i % 2 != 0 && j % 2 == 0 || i % 2 == 0 && j % 2 != 0)
+                    {
+                        babuk[i, j].Background = Brushes.Green;
+                    }
+                    else
+                    {
+                        babuk[i, j].Background = Brushes.Beige;
+                    }
+                    babuk[i, j].FontSize = 30;
+                    babuk[i, j].Content = "";
+
+                }
+            }
+            legalislepesek.Text = "";
+            pozicio.Content = " ";
+            Button temp = (Button)sender;
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (babuk[i, j] == temp)
+                    {
+                        x = i;
+                        y = j;
+                    }
+                }
+            }
+            babuk[x, y].Background = Brushes.Yellow;
+            switch (opciok.SelectedItem)
+            {
+                case ("Király"):
+                    babuk[x, y].Content = "♔";
+
+                    KingMove();
+                    break;
+                case ("Fehér paraszt"):
+                    babuk[x, y].Content = "♙";
+                    FeherParaszt();
+                    break;
+                case ("Fekete paraszt"):
+                    babuk[x, y].Content = "♟";
+                    FeketeParaszt();
+                    break;
+                case ("Királynő"):
+                    babuk[x, y].Content = "♕";
+                    FutoMove();
+                    RookMove();
+                    break;
+                case ("Futó"):
+                    babuk[x, y].Content = "♗";
+                    FutoMove();
+                    break;
+                case ("Bástya"):
+                    babuk[x, y].Content = "♖";
+                    RookMove();
+                    break;
+                case ("Huszár"):
+                    babuk[x, y].Content = "♘";
+                    HuszarMove();
+                    break;
+
+            }
+            pozicio.Content = letters[y] + Convert.ToString(y);
+            foreach (var lepes in legalmoves)
+            {
+                legalislepesek.Text += lepes + ",";
+            }
+
+        }
+
+
 
     }
 }
