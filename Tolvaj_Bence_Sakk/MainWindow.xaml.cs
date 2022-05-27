@@ -94,6 +94,19 @@ namespace Tolvaj_Bence_Sakk
                 legalmoves.Add(letters[y] + Convert.ToString(x - 1));
             }
         }
+        public void FeketeParaszt()
+        {
+            if (x + 1 < 8)
+            {
+                babuk[x + 1, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x + 2));
+            }
+            if (x == 1)
+            {
+                babuk[x + 2, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x + 3));
+            }
+        }
 
         public void General()
         {
