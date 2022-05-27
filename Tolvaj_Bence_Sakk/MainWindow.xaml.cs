@@ -81,6 +81,19 @@ namespace Tolvaj_Bence_Sakk
                 }
             }
         }
+        public void FeherParaszt()
+        {
+            if (x - 1 >= 0)
+            {
+                babuk[x - 1, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x));
+            }
+            if (x == 6)
+            {
+                babuk[x - 2, y].Background = Brushes.Red;
+                legalmoves.Add(letters[y] + Convert.ToString(x - 1));
+            }
+        }
 
         public void General()
         {
