@@ -179,6 +179,62 @@ namespace Tolvaj_Bence_Sakk
             babuk[x, y].Background = Brushes.Yellow;
 
         }
+        public void HuszarMove()
+        {
+            if (x - 2 >= 0)
+            {
+                if (y + 1 < 8)
+                {
+                    babuk[x - 2, y + 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 1] + Convert.ToString(x - 1));
+                }
+                if (y - 1 >= 0)
+                {
+                    babuk[x - 2, y - 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 1] + Convert.ToString(x - 1));
+                }
+            }
+            if (x + 2 < 8)
+            {
+                if (y + 1 < 8)
+                {
+                    babuk[x + 2, y + 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 1] + Convert.ToString(x + 3));
+                }
+                if (y - 1 >= 0)
+                {
+                    babuk[x + 2, y - 1].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 1] + Convert.ToString(x + 3));
+                }
+            }
+            if (y + 2 < 8)
+            {
+                if (x + 1 < 8)
+                {
+                    babuk[x + 1, y + 2].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 2] + Convert.ToString(x + 2));
+                }
+                if (x - 1 >= 0)
+                {
+                    babuk[x - 1, y + 2].Background = Brushes.Red;
+                    legalmoves.Add(letters[y + 2] + Convert.ToString(x));
+                }
+            }
+            if (y - 2 >= 0)
+            {
+                if (x + 1 < 8)
+                {
+                    babuk[x + 1, y - 2].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 2] + Convert.ToString(x + 2));
+                }
+                if (x - 1 >= 0)
+                {
+                    babuk[x - 1, y - 2].Background = Brushes.Red;
+                    legalmoves.Add(letters[y - 2] + Convert.ToString(x));
+                }
+            }
+
+        }
         public void General()
         {
             babuk = new Button[8, 8];
